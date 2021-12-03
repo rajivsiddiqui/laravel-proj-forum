@@ -17,7 +17,7 @@ pipeline {
 
         stage('Deploy to staging') {
             steps {
-               sh 'ssh -o StrictHostkeyChecking=no forum-deploy@192.168.56.105 "cd forum; \
+               sh 'ssh -o StrictHostkeyChecking=no forum-deploy@198.205.119.130 "cd forum; \
                   git pull origin master; \
                   composer install; \
                   php artisan migrate --force; \
@@ -32,7 +32,7 @@ pipeline {
                 ok "Yes Please"
             }
             steps {
-               sh 'ssh -o StrictHostkeyChecking=no forum-deploy@192.168.56.101 "cd forum; \
+               sh 'ssh -o StrictHostkeyChecking=no forum-deploy@198.205.120.253 "cd forum; \
                   git pull origin master; \
                   composer install --optimize-autoloader --no-dev; \
                   php artisan migrate --force; \
